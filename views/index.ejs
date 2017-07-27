@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= title %></title>
+	<%- include('head'); %>
+</head>
+<body>
+<%- include('header'); %>
+	<h1><%= title %></h1>
+	<p>Welcome to <%= title %></p>
+
+
+	<% if (title) { %>
+	<h2><%= title %></h2>
+	<% } %>
+
+	<ul>
+		<% cookies.forEach(function(item){ %>
+		<li><%- item %></li>
+		<% }) %>
+	</ul>
+	<img src="/food/food1.jpg">
+
+	<%- include('footer'); %>
+</body>
+</html>

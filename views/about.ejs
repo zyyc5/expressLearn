@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= title %></title>
+	<%- include('head'); %>
+</head>
+<body>
+	<%- include('header'); %>
+
+	<div class="container">
+		<div class="install-inner">
+			<h2 class="title text-center">Get Started</h2>
+			<div class="block">
+				<h3 class="sub-title text-center">Install</h3>
+				<p>It's easy to install EJS with NPM.</p>
+				<div class="code-block">
+					<!--//Use Prismjs - http://prismjs.com/index.html#basic-usage -->
+					<pre class=" language-bash"><code class=" language-bash">$ npm install ejs</code></pre>
+				</div><!--//code-block-->
+				<h3 class="sub-title text-center">Use</h3>
+				<p>Pass EJS a template string and some data. BOOM, you've got some HTML.</p>
+				<div class="code-block">
+					<!--//Use Prismjs - http://prismjs.com/index.html#basic-usage -->
+<pre class=" language-javascript">
+<code class=" language-javascript"><span class="token keyword">var</span> ejs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'ejs'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+people <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'geddy'</span><span class="token punctuation">,</span> <span class="token string">'neil'</span><span class="token punctuation">,</span> <span class="token string">'alex'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+html <span class="token operator">=</span> ejs<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">'&lt;%= people.join(", "); %&gt;'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>people<span class="token punctuation">:</span> people<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code>
+</pre>
+				</div><!--//code-block-->
+
+
+
+			</div><!--//block-->
+		</div><!--//install-inner-->
+	</div>
+	<%- include('footer'); %>
+</body>
+</html>

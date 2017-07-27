@@ -1,0 +1,109 @@
+@charset "utf-8";
+/* CSS Document */
+body{margin:0px 0px; padding:0px 0px; font-size:12px; color:#333; font-family:"宋体",Arial;}
+ul,ol,dl,li,dd,dt,a{list-style:none; text-decoration: none;}
+ul,dl{margin:0px 0px; padding:0px 0px;}
+a{color:#333;}
+img{border:0px;}
+#clear{clear:both; margin:0px 0px; padding:0px 0px;}
+
+.radius{border-radius:15px; -moz-border-radius: 15px; -webkit-border-radius: 15px;}
+.left{float:left;}
+.right{float:right;}
+.main{width:1024px; margin:0px auto; background:none;}
+
+.backwhite{background:#FFF; width:100%; padding:10px 0px; font-family:"微软雅黑";}
+.backwhite li{width:195px; border-right:1px #CCC solid; float:left; padding:0px 30px; height:240px;}
+.backwhite li.bn{border-right:none;}
+.backwhite li .text{line-height:22px; font-size:16px; margin:5px auto;}
+.backwhite li .app{width:180px; height:180px; margin:5px auto;}
+.backwhite li .app img{width:180px; height:180px;}
+.backwhite li .intro{line-height:26px; font-size:16px;}
+.backwhite li .anzhuo{background:url(/static/images/icon-008.png) no-repeat; width:177px; height:54px; margin:5px auto;}
+.backwhite li .anzhuo a{display:block; width:177px; height:54px;}
+.backwhite li .pinguo{background:url(/static/images/icon-008.png) no-repeat 0px -54px; width:177px; height:54px; margin:5px auto;}
+.backwhite li .pinguo a{display:block; width:177px; height:54px;}
+.backwhite li .input{width:180px; height:36px; border:1px #999 solid;}
+.backwhite li .input input{border:none; width:140px; height:24px; line-height:24px; color:#666; padding:5px 20px;}
+.backwhite li .but{width:180px; height:36px; background:#F33; text-align:center; color:#FFF;}
+.backwhite li .but a{display:block; width:180px; height:36px; color:#FFF; line-height:36px; margin:5px auto;}
+
+#header{width:100%; height:50px; background:#000;}
+#header .logo{float:left; width:115px; height:50px;}
+#header .logo img{width:115px; height:50px;}
+#header .menu{float:left; margin-left:20px;}
+#header .menu li{padding:0px 20px; margin:0px; float:left; line-height:50px; height:50px; -webkit-transform: skew(-20deg); -moz-transform: skew(-20deg); -o-transform: skew(-20deg);}
+#header .menu li:hover{text-decoration:none;background:#6FB0BE;padding:0px 20px; margin:0px; float:left; line-height:50px; height:50px; -webkit-transform: skew(-20deg); -moz-transform: skew(-20deg); -o-transform: skew(-20deg);}
+#header .menu li a{font-weight:bold; font-size:18px; font-family:"微软雅黑";color:#FFF;text-decoration:none;}
+#header .menu li .menuFont{font-weight:bold; font-size:18px; font-family:"微软雅黑";color:#FFF;-webkit-transform: skew(20deg); -moz-transform: skew(20deg); -o-transform: skew(20deg);}
+#header .menu li.howe{background:#19C9F5;}
+#header .user{float:right; line-height:50px; font-size:16px; color:#FFF;}
+#header .user a{font-size:16px; color:#FFF}
+
+.mainNav{font-size: 16px;}
+
+#js_banner{width:100%; margin:0px 0px; padding:0px 0px; height:420px; overflow:hidden; position:relative;}
+
+#advantage{width:100%; height:465px;}
+#advantage li{float:left; width:241px; height:400px; margin:65px 50px 0px 50px;}
+#advantage li .pic{width:192px; height:192px; margin:0px auto;}
+#advantage li .pic img{width:192px; height:192px;}
+#advantage li .title{font-weight:bold; font-size:26px; font-family:"微软雅黑"; line-height:82px; text-align:center; color:#666;}
+#advantage li .intro{line-height:22px; width:200px; margin:0px auto; color:#666;}
+
+.wifi{width:100%;}
+.wifi .desc{margin-top: 40px; text-align: center; font-size: 25px;}
+
+.space{height: 30px;}
+
+#appfun{width:100%; height:620px; background:url(/static/images/fun-icon-001.png); position:relative;}
+#appfun .wifi{width:362px; height:570px; position:absolute; left:50%; right:50%; margin-left:-181px; margin-right:-181px; bottom:0px;}
+#appfun .wifi img{margin-top: 75px; margin-left: 15px; width: 220px; height: 350px;}
+#appfun .app{width:362px; height:570px; background:url(/static/images/icon-007.png); position:absolute; left:50%; right:50%; margin-left:-181px; margin-right:-181px; bottom:0px;}
+#appfun .appone{width:308px; height:186px; background:url(/static/images/icon-004.png); position:absolute; left:5%; top:100px;}
+#appfun .apptwo{width:289px; height:198px; background:url(/static/images/icon-005.png); position:absolute;  left:13%; bottom:60px;}
+#appfun .appthree{width:282px; height:185px; background:url(/static/images/icon-006.png); position:absolute; right:8%; top:45%;}
+
+#case{width:1024px; margin:0px auto; padding:10px 0px;}
+#case .title{font-weight:bold; font-size:26px; font-family:"微软雅黑"; line-height:82px; color:#0899b8;}
+#case li{width:187px; height:105px; margin:8px 8px; float:left;}
+.thumb1 {
+    width: 100%;
+    height: 105px;
+    overflow: hidden;
+    /*box-shadow: 0 0 5px 0px rgba(128,128,128,0.62);*/
+}
+.thumb1-inner {
+     display: table-cell;
+     vertical-align: middle;
+     text-align: center;
+     width: 187px;
+     height: 105px;
+     background: #fff;
+     overflow: hidden;
+ }
+.thumb1 img {
+    vertical-align: middle;
+    max-width: 100%;
+    max-height: 105px;
+}
+
+/*foot*/
+#foot{width:100%; height:180px; padding:30px 0px; background:#0899b8;}
+#foot .logo{width:195px; height:79px; float:left; padding:0px 0px;}
+#foot .qrcode{color: #ccc;font-size: 5px;width: 100%;text-align: center;}
+#foot .qrcode img{width: 70px;}
+#foot .logo img{width:195px; height:79px; }
+#foot .menu{float:right; padding:0px 30px 0px 30px}
+#foot .menu li {color:#FFF; font-size:14px; font-family:"微软雅黑"; line-height:26px;}
+#foot .menu li a{color:#FFF;}
+#foot .menu li.t{font-weight:bold; font-size:16px; font-family:"微软雅黑"; color:#FFF;}
+#foot .copyright{float:right; padding:0px 0px 0px 15px; line-height:26px; color:#FFF; font-size:14px; font-family:"微软雅黑";}
+    
+    
+    
+    
+    
+    
+    
+    

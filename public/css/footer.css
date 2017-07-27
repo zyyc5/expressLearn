@@ -1,0 +1,115 @@
+.pinky-template {
+	font-size: 14px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #333;
+	min-width: 960px;
+	position: relative;
+	background-color: #292c35;
+	padding-top: 20px;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#292c35),
+		to(#22262e));
+	background-image: -webkit-linear-gradient(top, #292c35, #22262e);
+	background-image: -moz-linear-gradient(top, #292c35, #22262e);
+	background-image: -o-linear-gradient(top, #292c35, #22262e);
+	background-image: linear-gradient(to bottom, #292c35, #22262e)
+}
+
+.pinky-template .footer-main {
+	width: 970px;
+	margin: 0 auto;
+	padding-left: 20px;
+	*zoom: 1;
+	padding: 0 20px 15px;
+	color: #c3c6cc;
+	padding-right: 20px;
+}
+
+.pinky-template .footer-main:before,.pinky-template .footer-main:after {
+	content: "";
+	display: table
+}
+
+.pinky-template .footer-main:after {
+	clear: both
+}
+
+.pinky-template .footer-main:before,.pinky-template .footer-main:after {
+	display: table;
+	content: "";
+	line-height: 0
+}
+
+.pinky-template .footer-main:after {
+	clear: both
+}
+
+.pinky-template .footer-main a {
+	color: #c3c6cc
+}
+
+.pinky-template .footer-main .loading-icon [class*=fl-icon-] {
+	color: #717785
+}
+
+.pinky-template .footer-main .footer-logo {
+	margin: 0 0 20px 15px;
+	width: 127px;
+	height: 50px;
+	display: inline-block;
+	text-indent: -99999px;
+	background-image: url(/static/images/logo1.png);
+	background-size: 100% 100%
+}
+
+.ie8 .pinky-template .footer-main .footer-logo {
+	background-image: url(/static/images/logo1.png);
+	background-repeat: no-repeat
+}
+
+.pinky-template .footer-stats-values {
+	position: relative;
+	z-index: 2;
+	margin: 0;
+	-webkit-margin-before: 0;
+	-webkit-margin-after: 0
+}
+
+.pinky-template .footer-content {
+	display: inline;
+	float: left;
+	width: 31.25%;
+	margin: 0 1.04166667%
+}
+
+.ie8 .pinky-template .footer-content .social-media-links {
+	width: 100%
+}
+
+.pinky-template .footer-menu {
+	float: left;
+	padding-top: 20px;
+	margin-left: 20px;
+}
+
+.pinky-template .footer-menu p {
+	color: #FFF;
+	font-size: 18px;
+	line-height: 26px;
+	font-family: "Microsoft Yahei","΢���ź�",Tahoma,Helvetica,Arial,sans-serif;
+}
+
+.pinky-template .footer-menu p a {
+	color: #FFF;
+	text-decoration: none;
+	/* margin: 0 20px; */
+}
+
+.pinky-template .footer-copyright {
+	width: 960px;
+	margin: 0 auto;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	text-align:center;
+	color: #717785;
+}

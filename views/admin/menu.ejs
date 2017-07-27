@@ -1,0 +1,10 @@
+<div id="sysMenu">
+    <ul class="nav nav-list bf-sidenav">
+        <% menus.forEach(function(item){ %>
+            <li class="nav-header SystemManger"><%- item.name%></li>
+            <% item.child.forEach(function(citem){%>
+                <li class="SystemManger"><a href="<%- citem.url%>"><i class="fa fa-ticket fa-fw"></i> <%- citem.name%></a></li>
+            <%  }) %>
+        <% }) %>
+    </ul>
+</div>

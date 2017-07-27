@@ -1,0 +1,20 @@
+<header class="navbar navbar-inverse navbar-fixed-top bf-docs-nav topNavbar" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bf-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand"></a>
+        </div>
+        <nav class="collapse navbar-collapse bf-navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav navbar-right">
+                <script>
+                    var CURRENT_LOGGED_MERCHANT = null;
+                </script>
+                <li class="setting"><a href="javascript:void(0);">欢迎 &nbsp;<%=user.name%></a></li>
+                <li class="platform"><a href="/admin/home"><i class="fa fa-laptop fa-fw"></i> 商户后台</a></li>
+                <li><a href="/admin/logout"><i class="fa fa-power-off fa-fw"></i> 安全退出</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
