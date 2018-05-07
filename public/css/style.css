@@ -626,7 +626,7 @@ body {
   /* ======= Footer ======= */
 
 
-  .footer{width:100%; min-width:1200px; margin:20px 0px 0px 0px; overflow:hidden; background:#30333a; height:400px; box-sizing:border-box; padding-top:20px;}
+  .footer{width:100%; min-width:1200px; margin:20px 0px 0px 0px; overflow:hidden; background:#30333a; height:250px; box-sizing:border-box; padding-top:20px;}
   .footer .widthfooter{ width:1002px; margin:0 auto;}
   .footer .footernav{color:#8f8f8f; font-size:14px; width:600px;}
   .footer .footernav ul li{ float:left; width:130px; text-align:center; background:url(../images/rihgtline.png) no-repeat top right; height:260px;}
