@@ -38,7 +38,7 @@ var MysqlImpl  = function(host, user, pwd, db) {
 				  	console.log("ERROR: ");
 			 		console.log(sqltext);
 			 		if(error.message.toLowerCase().indexOf("duplicate column") == -1) {
-			 			alert(sqltext + " <<<<<------>>>>>:" + error.message);
+			 			console.error(sqltext + " <<<<<------>>>>>:" + error.message);
 			 		}
 				  	return cb(error);
 				  }
