@@ -93,6 +93,18 @@ body {
   ul {
     margin-top: 24px;
   }
+
+
+  li{list-style:none;}
+  a{ text-decoration:none; color:#414141;}
+  a:hover{ color:#f60;}
+  .fl{float:left}
+  .fr{float:right}
+  .clear{ clear:both; height:0px;}
+  .mt{margin-top:15px;}
+  h3,h2{ font-weight:normal;}
+  img{vertical-align:bottom; border:0;}
+
   /* ======= Header ======= */
   .header {
     padding: 10px 0;
@@ -623,6 +635,29 @@ body {
     text-align: center;
     padding: 0;
   }
+
+/*********菜单*******/
+.menu { width:100%; min-width:1200px; background:url(../images/index_05.jpg) repeat-x; height:45px; line-height:45px;}
+.menu .nav_wk {MARGIN: 0px auto; WIDTH: 1002px;}
+.clearfix:after {DISPLAY: block; HEIGHT: 0px; VISIBILITY: hidden; CLEAR: both; CONTENT: "."}
+.nav {Z-INDEX: 1; POSITION: relative}
+.nav a {COLOR: #fff}
+.nav .nLi {POSITION: relative; display: inline-block;  FLOAT: left}
+.nav .nLi h3 {FLOAT: left; }
+.nav .nLi h3 a {TEXT-ALIGN: center; LINE-HEIGHT: 45px; width:165px;  FLOAT: left; COLOR: #fff; FONT-SIZE: 14px; FONT-WEIGHT: bold}
+.nav .nLi h3 a:hover{ background:#45b732; color:#fff;}
+.nav .sub {POSITION: absolute; LINE-HEIGHT: 40px; width:220px; DISPLAY: none; background: #156637; TOP: 45px; font-size:14px; LEFT: 0px; opacity: 0.80;-moz-opacity: 0.80;filter:alpha(opacity=80);}
+.nav .sub li {ZOOM: 1}
+.nav .sub a {PADDING-BOTTOM: 0px; PADDING-LEFT: 10px;  PADDING-RIGHT: 10px; DISPLAY: block; PADDING-TOP: 0px; }
+.nav .sub a:hover {COLOR: #fff; TEXT-DECORATION: none; background:#FC0;}
+.nav .on h3 a {LINE-HEIGHT: 36px; background:#19954d; color:#fff; TEXT-DECORATION: none; height:38px; padding-top:7px;}
+.menubg{ width: 100%; min-width:1002px; background:#003570; height:3px;}
+/*******菜单结束******/
+
+  .header{ width:100%; min-width:1200px; background:url(../images/index_02.jpg) repeat-x; height:108px; }
+  .header .boxwidth{ width:1002px; margin:0 auto; overflow:hidden; padding-top:15px;}
+
+
   /* ======= Footer ======= */
 
 
@@ -654,6 +689,22 @@ body {
   .footer .fa-heart {
     color: #bf225a;
   }
+
+  .copyright {
+    background: #111;
+    font-size: 15px;
+    text-align: center;
+    color: rgb(145, 140, 140);
+    padding-top: 18px;
+    padding-bottom: 20px;
+    border-top: 1px solid #303030;
+}
+.copyright span {
+    margin: 0 .5em;
+}
+.copyright a {
+    color: rgb(145, 140, 140);;
+}
 
   /* Extra small devices (phones, less than 768px) */
   @media (max-width: 767px) {
