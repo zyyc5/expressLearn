@@ -1,14 +1,15 @@
 var express = require('express');
 var router = express.Router();
-var bodyParser = require('body-parser');
+var fs = require("fs");
+var path = require('path');
 var multer  = require('multer');
+var bodyParser = require('body-parser');
 // 创建 application/x-www-form-urlencoded 编码解析
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 var menudao = require('../dao/menu'); 
 var userdao = require('../dao/user'); 
 
 var JsonResponse = require('../model/JsonResponse'); 
-
 
 router.all('*',function(req,res,next){
 	// console.log(req.session.get());
@@ -18,11 +19,13 @@ router.all('*',function(req,res,next){
 	{
 		return res.redirect('/admin/login');
 	}
+	res.locals = {isLogin:true, menus: req.session.get().menus, user: req.session.get().user};
 	if(req.session.get().user&&!req.session.get().menus)
 	{
 		return menudao.all(function(err,menus){
 			req.session.get().menus = menus;
 			req.session.update();
+			res.locals.menus = menus;
 			next();
 		});
 	}
@@ -72,7 +75,7 @@ var adminRender = function(req){return new RenderObj(req);}
 
 router.post('/login', function(req, res) {
 	console.log(req.body);
-	debugger;
+
 	let name = req.body.name;
 	let pwd = req.body.pwd;
 	// console.log(name,pwd,userdao.login);
@@ -94,5 +97,37 @@ router.get('/test', function(req, res) {
 });
 
 
+router.get('/posts', function(req, res) {
+	
+	res.render('admin/postsEdit', { title: '编辑' });
+});
+
+router.post('/imageupload', function (req, res) {
+
+	console.log(req.files[0]);  // 上传的文件信息
+ 
+	var des_file = __dirname + "/" + req.files[0].originalname;
+	let response = {};
+	fs.writeFile(des_file, req.files[0], function (err) {
+		if( err ){
+			console.log( err );
+		}else{
+			response = {
+				message:'File uploaded successfully', 
+				filename: des_file
+			};
+		}
+		console.log( response );
+		res.end( JSON.stringify( response ) );
+	});
+
+ });
+
+ router.get('/imageupload', function (req, res) {
+	res.end( JSON.stringify( {
+		message:'not support get', 
+		filename: ''
+	} ) );
+ });
 
 module.exports = router;

@@ -13,6 +13,10 @@ const config = {
         'port': 32768,
         'host': '127.0.0.1',
         'redisSecret': ''
+    },
+    webSite:{
+        phone: '18862323234',
+        address: '沭阳县新河镇XXXX花木产业园'
     }
 };
 

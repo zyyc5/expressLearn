@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <%- include('head'); %>
+    <!-- include libraries(jQuery, bootstrap) -->
+<!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" />
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
+
+<!-- include summernote css/js-->
+<link href="/summernote/summernote.css" rel="stylesheet">
+<script src="/summernote/summernote.js"></script>
+<script src="/summernote/lang/summernote-zh-CN.min.js"></script>
+</head>
+<body>
+    <!-- Docs master nav -->
+    <script >
+        $(document).ready(function() {
+        $('#summernote').summernote({
+            lang: 'zh-CN',
+            height: 400,                 // set editor height
+            minHeight: 200,             // set minimum height of editor
+            maxHeight: null,             // set maximum height of editor
+            focus: true ,                 // set focus to editable area after initializing summe
+            callbacks: {
+                onImageUpload: function(files) {
+                    var $files = $(files);
+
+                    // 通过each方法遍历每一个file
+                    $files.each(function() {
+                        var file = this;
+                        // FormData，新的form表单封装，具体可百度，但其实用法很简单，如下
+                        var data = new FormData();
+
+                        // 将文件加入到file中，后端可获得到参数名为“file”
+                        data.append("file", file);
+
+                        // ajax上传
+                        $.ajax({
+                            data : data,
+                            type : "POST",
+                            url : '../file_upload',//imageupload',// div上的action
+                            cache : false,
+                            contentType : false,
+                            processData : false,
+
+                            // 成功时调用方法，后端返回json数据
+                            success : function(response) {
+                                // 封装的eval方法，可百度
+                                var json = JSON.parse(response);
+
+                                // 控制台输出返回数据
+                                console.info(json);
+
+                               // 插入到summernote
+                               $('#summernote').summernote('insertImage', json.url, function($image) {
+                                    // todo，后续可以对image对象增加新的css式样等等，这里默认
+                                });
+
+                            },
+                            // ajax请求失败时处理
+                            error : function(error){
+
+                            }
+                        });
+                    });
+                }
+            }
+        });
+      });
+    </script>
+    
+    <%- include('header'); %>
+    <div class="container bf-docs-container bodyWrapper" style="margin-top: 105px;">
+        <div class="row">
+            <div class="col-md-2">
+            <%- include('menu'); %>
+            </div>
+            
+
+            <div class="col-md-10" role="main">
+                <div class="bf-docs-section dataTableListSection">
+                        <div id="summernote">Hello Summernote</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

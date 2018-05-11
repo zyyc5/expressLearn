@@ -1,21 +1,27 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 
-var fs = require("fs");
-var path = require('path');
-var bodyParser = require('body-parser');
-var multer  = require('multer');
-var routes = require('./router/router');
-var adminroutes = require('./router/adminrouter');
-var sessionmiddle = require('./middleware/session');
+const fs = require("fs");
+const path = require('path');
+const bodyParser = require('body-parser');
+const multer  = require('multer');
+const routes = require('./router/router');
+const adminroutes = require('./router/adminrouter');
+const sessionmiddle = require('./middleware/session');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
+// app.use(bodyParser());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(multer({ dest: '/tmp/'}).array('image'));
+// app.use(multer({ dest: '/tmp/'}).array('image'));
 app.use(sessionmiddle.middle);
+
+const upload = multer({dest: 'public/temp/'})
+app.use(upload.fields([{ name: 'file', maxCount: 1 },{name:'file1',maxCount:1}]))
+// app.use(upload.array('image'));
+
 // app.all("*", function(request, response, next) {
 //   response.writeHead(200, { "Content-Type": "text/plain" });
 //   next();
