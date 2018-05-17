@@ -49,15 +49,9 @@
                             contentType : false,
                             processData : false,
 
-                            // 成功时调用方法，后端返回json数据
                             success : function(response) {
-                                // 封装的eval方法，可百度
-                                var json = JSON.parse(response);
-
-                                // 控制台输出返回数据
+                                var json = response;
                                 console.info(json);
-
-                               // 插入到summernote
                                $('#summernote').summernote('insertImage', json.url, function($image) {
                                     // todo，后续可以对image对象增加新的css式样等等，这里默认
                                 });

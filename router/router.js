@@ -6,6 +6,8 @@ var multer  = require('multer');
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 var fs = require("fs");
 var path = require('path');
+const cosDll = require('../lib/cos');
+const imageDomain = 'http://image.qicheen.com/';
 
 /* GET home page. */
 router.get('/index', function(req, res) {
@@ -56,21 +58,22 @@ router.post('/file_upload', function (req, res) {
    var tmp_path = req.files.file[0].path;
    let responseUrl = '/upload/' + req.files.file[0].filename + '_' + req.files.file[0].originalname
    var target_path = 'public' + responseUrl;
-   // 移动文件
-   fs.rename(tmp_path, target_path, function(err) {
-	 if (err) throw err;
-	 // 删除临时文件夹文件, 
-	 fs.unlink(tmp_path, function() {
-		// if (err) throw err;
-		// res.send('File uploaded to: ' + target_path + ' - ' + req.files.thumbnail.size + ' bytes');
-	 });
-	 let response = {
-					message:'File uploaded successfully', 
-					url: responseUrl
-				};
-	res.end( JSON.stringify( response ) );
-   });
+   let filekey = req.files.file[0].filename + '_' + req.files.file[0].originalname;
+   fs.readFile(tmp_path, function (err, data) {
+		cosDll.put(filekey, data,(err,result)=>{
+		// 移动文件
+			fs.rename(tmp_path, target_path, function(err) {
+				fs.unlink(tmp_path, function() {});
+			});
 
+			let response = {
+				message:'success', 
+				url: (!err&&result&&result.statusCode == 200)?(imageDomain + filekey) : responseUrl//result.Location
+			};
+			res.send(200, response);
+
+		});
+	});
 
 })
 

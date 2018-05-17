@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var multer  = require('multer');
 // 创建 application/x-www-form-urlencoded 编码解析
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
+const cosDll = require('./lib/cos');
 
 /* GET home page. */
 router.get('/index', function(req, res) {
@@ -52,18 +53,24 @@ router.post('/file_upload', function (req, res) {
 
    var des_file = __dirname + "/" + req.files[0].originalname;
    fs.readFile( req.files[0].path, function (err, data) {
-   	fs.writeFile(des_file, data, function (err) {
-   		if( err ){
-   			console.log( err );
-   		}else{
-   			response = {
-   				message:'File uploaded successfully', 
-   				filename:req.files[0].originalname
-   			};
-   		}
-   		console.log( response );
-   		res.end( JSON.stringify( response ) );
-   	});
+	cosDll.put(req.files[0].originalname, data,(err,result)=>{
+		
+		fs.writeFile(des_file, data, function (err) {
+			if( err ){
+				console.log( err );
+			}else{
+				response = {
+					message:'File uploaded successfully', 
+					filename:req.files[0].originalname
+				};
+			}
+			console.log( response );
+			res.end( JSON.stringify( response ) );
+		});
+
+	})
+   	
+	   
    });
 })
 
