@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 var menudao = require('../dao/menu'); 
 var userdao = require('../dao/user'); 
-
+const controller = require('../src/controller/posts');
 var JsonResponse = require('../model/JsonResponse'); 
 
 router.all('*',function(req,res,next){
@@ -130,4 +130,6 @@ router.post('/imageupload', function (req, res) {
 	} ) );
  });
 
-module.exports = router;
+ router.post('/addposts', controller.addPosts)
+
+ module.exports = router;

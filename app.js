@@ -14,6 +14,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
 // app.use(bodyParser());
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(multer({ dest: '/tmp/'}).array('image'));
 app.use(sessionmiddle.middle);
@@ -26,6 +27,12 @@ app.use(upload.fields([{ name: 'file', maxCount: 1 },{name:'file1',maxCount:1}])
 //   response.writeHead(200, { "Content-Type": "text/plain" });
 //   next();
 // });
+
+app.use((req, res, next)=>{
+    req.body;
+    req._param = req.method == "GET"?req.query: req.body;
+    next();
+})
 
 app.use('/', routes); 
 app.use('/admin', adminroutes); 

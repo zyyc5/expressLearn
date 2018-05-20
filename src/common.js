@@ -5,7 +5,7 @@ const redis = require('../lib/redis');
 
 let common = {
     MSQLInstance: mysql.connect(config.MYSQL),
-    RedisInstance = redis.connect(appRedisConfig),
+    RedisInstance: redis.connect(config.NodeJsRedisConfig),
 
 }
 

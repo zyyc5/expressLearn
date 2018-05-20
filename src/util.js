@@ -9,6 +9,9 @@ let util = {
     },
     get now(){
         return Math.round(new Date().getTime()/1000);
+    },
+    get nowStr(){
+      new Date().format('yyyy-MM-dd hh:mm:ss');
     }
 };
 
@@ -19,7 +22,7 @@ let util = {
  * @param schemasNo 需要连接的数据库。1：qichacha、2：qichacha_extend, 3: qcc_data_user_re 4:qichacha_api_log  默认1
  * @returns {*}
  */
-util.getQueryConnection = (sql, schemasNo = 1) => {
+let getQueryConnection = (sql, schemasNo = 1) => {
     let dmlType = sql.trim().substring(0, 6).toLowerCase();
     if (dmlType === 'insert' || dmlType === 'update' || dmlType === 'delete'){
       //连接写数据库
@@ -179,6 +182,25 @@ util.getQueryConnection = (sql, schemasNo = 1) => {
     });
   };
   
+
+  Date.prototype.format = function(format){
+   var o = {
+   "M+" : this.getMonth()+1, //month
+   "d+" : this.getDate(),    //day
+   "h+" : this.getHours(),   //hour
+   "m+" : this.getMinutes(), //minute
+   "s+" : this.getSeconds(), //second
+   "q+" : Math.floor((this.getMonth()+3)/3),  //quarter
+   "S" : this.getMilliseconds() //millisecond
+   }
+   if(/(y+)/.test(format)) format=format.replace(RegExp.$1,
+   (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+   for(var k in o)if(new RegExp("("+ k +")").test(format))
+   format = format.replace(RegExp.$1,
+   RegExp.$1.length==1 ? o[k] :
+   ("00"+ o[k]).substr((""+ o[k]).length));
+   return format;
+  }
 
   module.exports =  util;
 

@@ -14,7 +14,9 @@
 
 <!-- include summernote css/js-->
 <link href="/summernote/summernote.css" rel="stylesheet">
+<link href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css" rel="stylesheet">
 <script src="/summernote/summernote.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
 <script src="/summernote/lang/summernote-zh-CN.min.js"></script>
 </head>
 <body>
@@ -79,7 +81,24 @@
 
             <div class="col-md-10" role="main">
                 <div class="bf-docs-section dataTableListSection">
-                        <div id="summernote">Hello Summernote</div>
+                        <div id="c_title" class="input-group input-group-lg" style="margin:15px;width: 100%;text-align: right;">
+                    <button class="btn btn-success" id='bt-send' >发布</button>
+                </div>
+                        <div id="c_title" class="input-group input-group-lg" style="margin:15px;width: 100%;">
+                            <input type="text" class="form-control" id='ipt-title' name="last_name" placeholder='这里输入标题' style="width: 100%;">
+                        </div>
+                        <div id="c_type" class="input-group input-group-lg" style="margin:15px;width: 100%;">
+                                <select class="selectpicker" id='select-cat'>
+                                        <option value="" selected disabled>选择文章类别</option>
+                                        <option value='1'>产品中心</option>
+                                        <option value='2'>Ketchup</option>
+                                        <option value='3'>Barbecue</option>
+                                </select>
+                        </div>
+                        <br>
+                        <div id="c_content" class="input-group input-group-lg" style="margin-left:16px;width: 100%;">
+                            <div id="summernote" style="margin-top:20px;;">Hello Summernote</div>
+                        </div>
                 </div>
             </div>
 
@@ -87,4 +106,42 @@
     </div>
 
 </body>
+<script  type='text/javascript'>
+    (function () {
+        $('#bt-send').on('click', ()=>{
+            var title = $('#ipt-title').val();
+            var cat = $('#select-cat').selectpicker('val');
+            var content = $('#summernote').summernote('code');
+            console.log(title, cat, content);
+            if(!title||!cat||!content)
+                return alert('信息不全');
+            var data = {
+                title: title,
+                post_cat: cat,
+                content: content
+            }
+            $.ajax({
+                data : JSON.stringify(data),
+                type : "POST",
+                contentType: "application/json; charset=utf-8",
+                url : 'addposts',
+                cache : false,
+                success : function(response) {
+                    var json = response;
+                    console.info(json);
+                    $('#summernote').summernote('insertImage', json.url, function($image) {
+                        // todo，后续可以对image对象增加新的css式样等等，这里默认
+                    });
+
+                },
+                // ajax请求失败时处理
+                error : function(error){
+
+                }
+            });
+
+
+        });
+    })();
+</script>
 </html>
