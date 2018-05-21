@@ -1,9 +1,11 @@
-var async =require('async');
+const async =require('async');
+const config = require('../src/config');
+
 var MysqlImpl  = function(host, user, pwd, db) {
-	host = host?host:'127.0.0.1';
-	user = user?user:'root';
-	pwd = pwd?pwd:'';
-	db = db?db:'express';
+	host = host?host:config.MYSQL.host;
+	user = user?user:config.MYSQL.user;
+	pwd = pwd?pwd:config.MYSQL.password;
+	db = db?db:config.MYSQL.database;
 
 	this.host = host;
 	this.user = user;

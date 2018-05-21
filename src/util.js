@@ -11,7 +11,7 @@ let util = {
         return Math.round(new Date().getTime()/1000);
     },
     get nowStr(){
-      new Date().format('yyyy-MM-dd hh:mm:ss');
+      return new Date().format('yyyy-MM-dd hh:mm:ss');
     }
 };
 

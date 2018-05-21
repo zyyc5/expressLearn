@@ -3,14 +3,14 @@
 const config = {
     MYSQL:{
         host: 'localhost',
-        port: 6379,
+        port: 3306,
         user: 'root',
-        password: '',
+        password: 'root',
         database: 'express',
         connectionLimit: 10
     },
     NodeJsRedisConfig : {
-        'port': 6379,
+        'port': 32768,
         'host': '127.0.0.1',
         'redisSecret': ''
     },
