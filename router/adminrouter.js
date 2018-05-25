@@ -97,10 +97,7 @@ router.get('/test', function(req, res) {
 });
 
 
-router.get('/posts', function(req, res) {
-	
-	res.render('admin/postsEdit', { title: '编辑' });
-});
+router.get('/posts', controller.posts);
 
 router.post('/imageupload', function (req, res) {
 
@@ -131,5 +128,8 @@ router.post('/imageupload', function (req, res) {
  });
 
  router.post('/addposts', controller.addPosts)
+ router.get('/postlist', controller.postList)
+
+
 
  module.exports = router;

@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <%- include('head'); %>
+    <link href="/summernote/summernote.css" rel="stylesheet">
+<link href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css" rel="stylesheet">
+<script src="/summernote/summernote.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+<script src="/summernote/lang/summernote-zh-CN.min.js"></script>
+</head>
+<body>
+    <!-- Docs master nav -->
+
+    <%- include('header'); %>
+    <div class="container bf-docs-container bodyWrapper" style="margin-top: 105px;">
+        <div class="row">
+            <div class="col-md-2">
+            <%- include('menu'); %>
+            </div>
+            
+
+            <div class="col-md-10" role="main">
+                <div class="bf-docs-section dataTableListSection">
+
+                    <div id="c_type" class="input-group input-group-lg" style="margin:15px;width: 100%;">
+                        <select class="selectpicker" id='select-cat'>
+                                <option value="" selected disabled>选择文章类别</option>
+                                <option value='1'>产品中心</option>
+                                <option value='2'>Ketchup</option>
+                                <option value='3'>Barbecue</option>
+                        </select>
+                </div>
+                <br>
+                <div id="c_list" class="input-group input-group-lg" style="margin-left:16px;width: 100%;">
+                    <table class="table">
+                        <thead>
+                            <th>ID</th><th>标题</th><th>发布日期</th><th>操作</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <% posts.data.forEach(function(item){ %>
+                                    <td><%- item.id %></td>
+                                    <td><%- item.title %></td>
+                                    <td><%- item.post_date %></td>
+                                    <td><a href='posts?postid=<%- item.id %>'>编辑</a></td>
+                                    <% }) %>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
+<script type="text/javascript">
+    var returnCount = 0;
+</script>
+
