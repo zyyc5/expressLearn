@@ -29,10 +29,10 @@
 
                     <div id="c_type" class="input-group input-group-lg" style="margin:15px;width: 100%;">
                         <select class="selectpicker" id='select-cat'>
-                                <option value="" selected disabled>选择文章类别</option>
-                                <option value='1'>产品中心</option>
-                                <option value='2'>Ketchup</option>
-                                <option value='3'>Barbecue</option>
+                                <option value="0" selected >全部</option>
+                                <% allcats.forEach(function(item){ %>
+                                    <option value='<%- item.cat_id %>'  <%- (cat_id&&cat_id==item.cat_id?'selected':'') %> ><%- item.cat_name %></option>
+                                    <% }) %>
                         </select>
                 </div>
                 <br>
@@ -43,7 +43,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <% posts.data.forEach(function(item){ %>
+                                <% posts.data.data.forEach(function(item){ %>
                                     <td><%- item.id %></td>
                                     <td><%- item.title %></td>
                                     <td><%- item.post_date %></td>
@@ -64,5 +64,11 @@
 </html>
 <script type="text/javascript">
     var returnCount = 0;
+    $('#select-cat').on('change',function () {
+        // alert($('#select-cat').selectpicker('val'));
+        location = 'postlist?post_cat=' + $('#select-cat').selectpicker('val');
+        });
+
+            $('#select-cat').selectpicker();
 </script>
 

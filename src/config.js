@@ -10,7 +10,7 @@ const config = {
         connectionLimit: 10
     },
     NodeJsRedisConfig : {
-        'port': 32768,
+        'port': 6379,//32768,
         'host': '127.0.0.1',
         'redisSecret': ''
     },

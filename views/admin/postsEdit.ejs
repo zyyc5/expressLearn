@@ -91,9 +91,12 @@
                         <div id="c_type" class="input-group input-group-lg" style="margin:15px;width: 100%;">
                                 <select class="selectpicker" id='select-cat'>
                                         <option value="" selected disabled>选择文章类别</option>
-                                        <option value='1'>产品中心</option>
+                                        <!-- <option value='1'>产品中心</option>
                                         <option value='2'>Ketchup</option>
-                                        <option value='3'>Barbecue</option>
+                                        <option value='3'>Barbecue</option> -->
+                                        <% allcats.forEach(function(item){ %>
+                                            <option value='<%- item.cat_id %>' <%- (post&&post.cat_id==item.cat_id?'selected':'') %>><%- item.cat_name %></option>
+                                            <% }) %>
                                 </select>
                         </div>
                         <br>

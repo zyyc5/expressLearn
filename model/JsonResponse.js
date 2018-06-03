@@ -1,7 +1,7 @@
 let JsonResponse= {};
 
 JsonResponse.success = function(data, totalrecords, pageindex, pagesize=20){
-	if(totalrecords&&pageindex){
+	if(totalrecords||pageindex){
 		let pageinfo = {
 			'count': totalrecords,
 			'currentpage': pageindex,
