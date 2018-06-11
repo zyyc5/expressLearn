@@ -17,15 +17,30 @@ let posts = (req, res)=>{
 }
 
 /**
- * 添加
+ * 添加 或 更新
  * @param {*} req 
  * @param {*} res 
  */
 let addPosts = (req, res)=>{
-    service.addPosts(req._param).then(result=>{
+    if(!req._param.post_id)
+        return service.addPosts(req._param).then(result=>{
+            res.send(200,result);
+        });
+    service.updatePost(req._param).then(result=>{
         res.send(200,result);
-    })
-}
+    });
+};
+
+/**
+ * 删除
+ * @param {*} req 
+ * @param {*} res 
+ */
+let delPost = (req, res)=>{
+    return service.delPost(req._param).then(result=>{
+        res.send(200,result);
+    });
+};
 
 /**
  * 文章列表页
@@ -44,4 +59,5 @@ module.exports = {
     addPosts,
     postList,
     posts,
+    delPost,
 }

@@ -58,6 +58,7 @@ var server = app.listen(8081, function () {
 	var port = server.address().port
 
 	console.log("应用实例，访问地址为 http://%s:%s", host, port)
-
+    var c = require('child_process');
+    c.exec(`start http://localhost:${port}`);
 });
 //node-inspector

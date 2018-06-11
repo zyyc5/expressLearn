@@ -101,7 +101,7 @@
                         </div>
                         <br>
                         <div id="c_content" class="input-group input-group-lg" style="margin-left:16px;width: 100%;">
-                            <div id="summernote" style="margin-top:20px;;">Hello Summernote</div>
+                            <div id="summernote" style="margin-top:20px;;"></div>
                         </div>
                 </div>
             </div>
@@ -117,7 +117,7 @@
             $('#select-cat').selectpicker('val', postObj.cat_id);
             $('#summernote').summernote('code', postObj.content);
         }
-        $('#bt-send').on('click', ()=>{
+        $('#bt-send').on('click', function(){
             var title = $('#ipt-title').val();
             var cat = $('#select-cat').selectpicker('val');
             var content = $('#summernote').summernote('code');
@@ -128,7 +128,9 @@
                 title: title,
                 post_cat: cat,
                 content: content
-            }
+            };
+            if(postObj&&postObj.id)
+                data.post_id = postObj.id;
             $.ajax({
                 data : JSON.stringify(data),
                 type : "POST",
@@ -138,9 +140,6 @@
                 success : function(response) {
                     var json = response;
                     console.info(json);
-                    $('#summernote').summernote('insertImage', json.url, function($image) {
-                        // todo，后续可以对image对象增加新的css式样等等，这里默认
-                    });
 
                 },
                 // ajax请求失败时处理
@@ -148,7 +147,6 @@
 
                 }
             });
-
 
         });
     })();

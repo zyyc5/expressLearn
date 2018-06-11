@@ -6,10 +6,9 @@ var multer  = require('multer');
 var bodyParser = require('body-parser');
 // 创建 application/x-www-form-urlencoded 编码解析
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
-var menudao = require('../dao/menu'); 
-var userdao = require('../dao/user'); 
-const controller = require('../src/controller/posts');
+const controller = require('../src/controller/postController');
 var JsonResponse = require('../model/JsonResponse'); 
+const adminController = require('../src/controller/adminController');
 
 router.all('*',function(req,res,next){
 	// console.log(req.session.get());
@@ -22,7 +21,7 @@ router.all('*',function(req,res,next){
 	res.locals = {isLogin:true, menus: req.session.get().menus, user: req.session.get().user};
 	if(req.session.get().user&&!req.session.get().menus)
 	{
-		return menudao.all(function(err,menus){
+		return adminController.allMenu(function(menus){
 			req.session.get().menus = menus;
 			req.session.update();
 			res.locals.menus = menus;
@@ -74,19 +73,13 @@ function RenderObj(req){
 var adminRender = function(req){return new RenderObj(req);}
 
 router.post('/login', function(req, res) {
-	console.log(req.body);
-
-	let name = req.body.name;
-	let pwd = req.body.pwd;
-	// console.log(name,pwd,userdao.login);
-	userdao.login(name,pwd,function(err,user){
-		console.log(err,user);
-		if(err)
-			return res.json(JsonResponse.error(err));
-		req.session.get().user = user;
-		res.json(JsonResponse.success({uid:user.guid}));
+	adminController.login(req._param).then(result=>{
+		if(!result.success)
+			return res.send(result);
+		req.session.get().user = result.data;
 		req.session.update();
-	});
+		res.send(result);
+	})
 	// res.json(JsonResponse.success({name:'zyy'}));
 });
 
@@ -127,8 +120,9 @@ router.post('/imageupload', function (req, res) {
 	} ) );
  });
 
- router.post('/addposts', controller.addPosts)
- router.get('/postlist', controller.postList)
+ router.post('/addposts', controller.addPosts);
+ router.get('/postlist', controller.postList);
+ router.post('/delposts', controller.delPost);
 
 
 
