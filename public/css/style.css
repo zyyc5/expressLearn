@@ -34,12 +34,38 @@ body {
 .nav .on h3 a {LINE-HEIGHT: 36px; background:rgb(5, 107, 85); color:#fff; TEXT-DECORATION: none;  padding-top:8px;}
 .menubg{ width: 100%; min-width:1002px; background:#003570; height:3px;}
 /*******菜单结束******/
-
+.inbox{ width:1002px; margin:30px auto 0 auto;}
+.inbox h3{ font-size:18px; color:#cacaca; text-align:center; margin-bottom:5px;}
+.inbox h2{ color:#285798; text-align:center; background:url(../images/line.png) no-repeat top center; line-height:35px; height:35px; font-size:24px; box-sizing:border-box; -moz-box-sizing: border-box; /*Firefox3.5+*/ -webkit-box-sizing: border-box; /*Safari3.2+*/ -o-box-sizing: border-box; /*Opera9.6*/ -ms-box-sizing: border-box; /*IE8*/}
+.inbox h2.aboutus{  color:#19954d; text-align:center; background:url(../images/index_17.jpg) no-repeat; height:28px; line-height:28px; font-size:24px; margin-bottom:5px; position:relative;}
+.inbox h2.aboutus p.one{ font-size:12px; position:absolute; top:-10px; left:320px; color:#a4a4a4;}
+.inbox h2.aboutus p.two{ font-size:12px; position:absolute; top:-10px; right:320px; color:#a4a4a4;}
+.inbox p.biaotism{ text-align:center; color:#a4a4a4; font-size:12px; line-height:24px;}
+.inbox p.green{ color:#71a363;}
+.inbox h2.casein{  color:#fff; text-align:center; background:url(../images/case.png) no-repeat top center; height:110px; padding-top:68px; font-size:24px;}
+.inbox h2.proin{  color:#727272; text-align:center; background:url(../images/proin.png) no-repeat top center; height:90px; padding-top:60px; font-size:24px;}
+.inbox h2 span.lingbgleft{ display:inline-block; background:url(../images/index_15.png) left top no-repeat; height:17px; width:421px; float:left; margin-top:10px;}
+.inbox h2 span.lingbgright{ display:inline-block; background:url(../images/index_17.png) left top no-repeat; height:17px; width:421px; float:right; margin-top:10px;}
+.inbox h4{ border-bottom:1px dashed #ccc; font-size:14px; font-weight:normal; padding-bottom:10px; color:#5b5b5b;}
+.inbox h4 span{ float:right;}
+.inbox .gsjjnav{ text-align:center; margin:20px 0 30px 0;  height:30px; font-size:14px; font-weight:bold; }
+.inbox .gsjjnav a{ display:inline-block; padding:0 15px; border:1px solid #19954d;  margin:0 5px; height:30px; line-height:30px; color:#0f823f;}
+.inbox .gsjjnav a:hover{ color:#fff; background:#1466c0; border:1px solid #1466c0;}
+.inbox .gsjjin{ line-height:24px; font-size:15px; color:#747474; overflow:hidden; margin-top:10px;}
+.inbox .gsjj img{ padding-right:15px; padding-top:8px;}
+.inbox .gsjj { color:#333; line-height:28px;}
+.inbox .gsjjbox{ width:530px; float:left; margin-top:170px; margin-left:100px; color:#5e5d5d; line-height:28px;}
+.inbox .gsjjbox div.btn{ margin-top:10px; text-align:center;}
+.inbox .gsjjbox div.btn a{ display:inline-block; width:100px; color:#ff6c00; background:#fff; padding:6px 30px; font-size:18px; border:1px solid #ddd;}
+.inbox .gsjjbox div.btn a:hover{ border:1px solid #ff6c00;}
+.inbox .yousibox{ width:400px; float:right; margin-right:95px; margin-top:210px;}
+.inbox .yousibox h3{ font-size:28px; color:#fff; padding-bottom:20px; }
+.inbox .yousibox div.txt{ font-size:18px; margin:10px auto; text-align:center; color:#fff; padding-left:25px; line-height:38px;}
 
   /* ======= Footer ======= */
 
 
-  .footer{width:100%; min-width:1200px; margin:20px 0px 0px 0px; overflow:hidden; background:#30333a; height:280px; box-sizing:border-box; padding-top:20px;}
+  .footer{ width:100%; min-width:1200px; margin:20px 0px 0px 0px; overflow:hidden; background:#30333a; height:280px; box-sizing:border-box; padding-top:20px;bottom:0px;width:100%}
   .footer .widthfooter{ width:1002px; margin:0 auto;}
   .footer .footernav{color:#8f8f8f; font-size:14px;margin-top: 15px; }
   .footer .footernav ul li{ float:left; width:130px; text-align:center; background:url(../images/rihgtline.png) no-repeat top right; height:260px;}

@@ -11,24 +11,16 @@ var JsonResponse = require('../model/JsonResponse');
 const adminController = require('../src/controller/adminController');
 
 router.all('*',function(req,res,next){
-	// console.log(req.session.get());
-	// req.session.get().name='zyy';
-	// req.session.update();
 	if(!req.session.get().user&&req.path.indexOf('/login')==-1)
-	{
 		return res.redirect('/admin/login');
-	}
 	res.locals = {isLogin:true, menus: req.session.get().menus, user: req.session.get().user};
 	if(req.session.get().user&&!req.session.get().menus)
-	{
-		return adminController.allMenu(function(menus){
+		return adminController.allMenu().then(function(menus){
 			req.session.get().menus = menus;
 			req.session.update();
 			res.locals.menus = menus;
 			next();
 		});
-	}
-	// console.log(req.session.get());
 	next();
 });
 
