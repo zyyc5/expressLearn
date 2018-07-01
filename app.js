@@ -12,7 +12,7 @@ const sessionmiddle = require('./middleware/session');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(express.static('public'));
+
 // app.use(bodyParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -35,6 +35,8 @@ app.use((req, res, next)=>{
 })
 
 app.use('/', routes); 
+app.use(express.static('public'));
+
 app.use('/admin', adminroutes); 
 
 app.use(function(req, res, next) {

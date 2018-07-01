@@ -10,6 +10,13 @@ const cosDll = require('../lib/cos');
 const imageDomain = 'http://image.qicheen.com/';
 
 /* GET home page. */
+router.get('/', function(req, res) {
+	// res.cookie('_node_Session','_jcvbnm');
+	let cookies=[];
+	cookies.push(req.get('cookie'));
+	console.log("Cookies: ", req.get('cookie'));
+  res.render('index', { title: 'Express',cookies:cookies });
+});
 router.get('/index', function(req, res) {
 	// res.cookie('_node_Session','_jcvbnm');
 	let cookies=[];
