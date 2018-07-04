@@ -14,14 +14,14 @@ router.get('/', function(req, res) {
 	// res.cookie('_node_Session','_jcvbnm');
 	let cookies=[];
 	cookies.push(req.get('cookie'));
-	console.log("Cookies: ", req.get('cookie'));
-  res.render('index', { title: 'Express',cookies:cookies });
+	// console.log("Cookies: ", req.get('cookie'));
+  res.render('index', { title: '匠之心园林绿化',cookies:cookies });
 });
 router.get('/index', function(req, res) {
 	// res.cookie('_node_Session','_jcvbnm');
 	let cookies=[];
 	cookies.push(req.get('cookie'));
-	console.log("Cookies: ", req.get('cookie'));
+	// console.log("Cookies: ", req.get('cookie'));
   res.render('index', { title: 'Express',cookies:cookies });
 });
 
