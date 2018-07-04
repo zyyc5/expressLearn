@@ -1,0 +1,19 @@
+[{
+  "name"        : "APP_TEST",
+  "script"      : "app.js",
+  "error_file"  : "./logs/log_dev_error.log",
+  "out_file"    : "./logs/log_dev_out.log",
+  "merge_logs"   : true,
+  "log_date_format" : "YYYY-MM-DD HH:mm:ss Z",
+  "watch"        : ["pm2.json"],
+  "ignore_watch" : ["node_modules", "logs"],
+  "watch_options": {
+    "usePolling": true
+  },
+  "env": {
+      "NODE_ENV": "development",
+      "NODE_LOG": "log"
+  },
+  "instances" : 0,
+  "exec_mode" : "cluster"
+}]

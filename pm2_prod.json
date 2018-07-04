@@ -1,0 +1,13 @@
+[{
+  "name"        : "APP_PROD",
+  "script"      : "app.js",
+  "error_file"  : "./logs/log_prod_error.log",
+  "out_file"    : "./logs/log_prod_out.log",
+  "merge_logs"   : true,
+  "log_date_format" : "YYYY-MM-DD HH:mm:ss Z",
+  "env": {
+      "NODE_ENV": "production"
+  },
+  "instances" : 4,
+  "exec_mode" : "cluster"
+}]
