@@ -7,7 +7,7 @@ const service = require('../service/postService');
  * @param {*} res 
  */
 let posts = (req, res)=>{
-    service.getAllCat().then(allcats=>{
+    service.getAllCat(0).then(allcats=>{
         if(!req._param.postid)
             return res.render('admin/postsEdit', { title: '发布新文章', post: null, allcats: allcats.data });
         service.getPostdetail(req._param).then(result=>{

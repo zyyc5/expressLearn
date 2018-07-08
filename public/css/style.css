@@ -7,6 +7,8 @@ body {
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    width: 100%;
+    min-width: 1200px;
   }
   div,ul,li,ol,body,img,span,h1,h2,h3,h4,h5,h6,p,TT,dl,dd,dt,table,tr,td,th,form,dl,dt,dd{margin:0px; padding:0px;}
   li{list-style:none;}
@@ -46,25 +48,10 @@ body {
 .inbox h2.proin{  color:#727272; text-align:center; background:url(../images/proin.png) no-repeat top center; height:90px; padding-top:60px; font-size:24px;}
 .inbox h2 span.lingbgleft{ display:inline-block; background:url(../images/index_15.png) left top no-repeat; height:17px; width:421px; float:left; margin-top:10px;}
 .inbox h2 span.lingbgright{ display:inline-block; background:url(../images/index_17.png) left top no-repeat; height:17px; width:421px; float:right; margin-top:10px;}
-.inbox h4{ text-align:center;border-bottom:1px dashed #ccc; font-size:14px; font-weight:bold; padding-bottom:10px; color:rgb(5,107,85);margin-top: 5px;}
+.inbox h4{ text-align:center; font-size:14px; font-weight:bold; padding-bottom:10px; color:rgb(5,107,85);margin-top: 5px;}
 .inbox h4 span{ float:right;}
 .inbox a.about{ width: 200px;margin-top: 20px;opacity: 0.5;color: rgb(21,109,85);font-weight: 700;}
 .inbox .fahuoimg{ padding: 10px;border: 1px solid #b9b2b2;vertical-align: bottom;width: 230px;}
-
-
-.inbox .gsjjnav{ text-align:center; margin:20px 0 30px 0;  height:30px; font-size:14px; font-weight:bold; }
-.inbox .gsjjnav a{ display:inline-block; padding:0 15px; border:1px solid #19954d;  margin:0 5px; height:30px; line-height:30px; color:#0f823f;}
-.inbox .gsjjnav a:hover{ color:#fff; background:#1466c0; border:1px solid #1466c0;}
-.inbox .gsjjin{ line-height:24px; font-size:15px; color:#747474; overflow:hidden; margin-top:10px;}
-.inbox .gsjj img{ padding-right:15px; padding-top:8px;}
-.inbox .gsjj { color:#333; line-height:28px;}
-.inbox .gsjjbox{ width:530px; float:left; margin-top:170px; margin-left:100px; color:#5e5d5d; line-height:28px;}
-.inbox .gsjjbox div.btn{ margin-top:10px; text-align:center;}
-.inbox .gsjjbox div.btn a{ display:inline-block; width:100px; color:#ff6c00; background:#fff; padding:6px 30px; font-size:18px; border:1px solid #ddd;}
-.inbox .gsjjbox div.btn a:hover{ border:1px solid #ff6c00;}
-.inbox .yousibox{ width:400px; float:right; margin-right:95px; margin-top:210px;}
-.inbox .yousibox h3{ font-size:28px; color:#fff; padding-bottom:20px; }
-.inbox .yousibox div.txt{ font-size:18px; margin:10px auto; text-align:center; color:#fff; padding-left:25px; line-height:38px;}
 
 
 .product-item { text-align: center ;margin-bottom:15px;}
@@ -73,7 +60,7 @@ body {
   border: 1px solid #b9b2b2;
   vertical-align: bottom;
   width: 260px;
-
+  height: 260px;
 }
 .product-item a{ TEXT-DECORATION: none; COLOR: rgb(71, 61, 61);}
 .product-item h3{ font-size:16px; color:#262626; text-align:center; margin-bottom:5px;height: 40px;line-height: 40px;font-weight: bold;}

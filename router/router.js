@@ -6,56 +6,27 @@ var multer  = require('multer');
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 var fs = require("fs");
 var path = require('path');
+const controller = require('../src/controller/homeController');
 const cosDll = require('../lib/cos');
 const imageDomain = 'http://image.qicheen.com/';
 
 /* GET home page. */
-router.get('/', function(req, res) {
-	// res.cookie('_node_Session','_jcvbnm');
-	let cookies=[];
-	cookies.push(req.get('cookie'));
-	// console.log("Cookies: ", req.get('cookie'));
-  res.render('index', { title: '匠之心园林绿化',cookies:cookies });
-});
-router.get('/index', function(req, res) {
-	// res.cookie('_node_Session','_jcvbnm');
-	let cookies=[];
-	cookies.push(req.get('cookie'));
-	// console.log("Cookies: ", req.get('cookie'));
-  res.render('index', { title: 'Express',cookies:cookies });
-});
+router.get('/', controller.home);
+router.get('/index', controller.home);
 
 router.get('/about', function(req, res) {
-   
-   console.log("router: ", 'about');
   res.render('about', { title: 'about' });
 });
 
-router.get('/', function (req, res) {
-	res.send('Hello World');
-})
+router.get('/product', controller.product);
+router.get('/product-more/:cat', controller.productMore);
+router.get('/product-detail/:id.html', controller.productDetail);
 
-router.get('/process', function (req, res) {
+router.get('/news', controller.newsCenter);
+router.get('/newsDetail/:id.html', controller.newsDetail);
+router.get('/cases', controller.caselist);
+router.get('/caseDetail/:id.html', controller.caseDetail);
 
-   // 输出 JSON 格式
-   var response = {
-   	"first_name":req.query.first_name,
-   	"last_name":req.query.last_name
-   };
-   console.log(response);
-   res.end(JSON.stringify(response));
-})
-
-router.post('/process',urlencodedParser, function (req, res) {
-	console.log(req.body);
-   // 输出 JSON 格式
-   var response = {
-   	"first_name":req.body.first_name,
-   	"last_name":req.body.last_name
-   };
-   console.log(response);
-   res.end(JSON.stringify(response));
-})
 
 router.post('/file_upload', function (req, res) {
 
