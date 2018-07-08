@@ -13,51 +13,13 @@
 		<h2>产品展示</h2>
 		<h2 class="line"></h2>
 		<div class="container" style=" margin-top: 20px;">
-            <!-- <div class="row" style="margin-bottom: 10px;">
-                <div class="col-sm-2"  style="text-align: left;">
-					<button class="btn">乔木类</button>
-				</div>
-				<div class="col-sm-8"  style="text-align: center">
-					
-				</div>
-				<div class="col-sm-2"  style="text-align: right;">
-					<a href=''>更多>></a>
-				</div>
-			</div> -->
-
 			<div class="row">
-				<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 product-item"  style="text-align: center">
-						<a href=''><img src="images/5di3.png"/>
-						<h3>乔木类-金叶水杉</h3></a>
-				</div>
-				<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 product-item"  style="text-align: center">
-						<a href=''><img src="images/5di3.png"/>
-						<h3>乔木类-金叶水杉</h3></a>
-				</div>
-				<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 product-item"  style="text-align: center">
-						<a href=''><img src="images/5di3.png"/>
-						<h3>乔木类-金叶水杉</h3></a>
-				</div>
-				<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 product-item"  style="text-align: center">
-						<a href=''><img src="images/5di3.png"/>
-						<h3>乔木类-金叶水杉</h3></a>
-				</div>
-				<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 product-item"  style="text-align: center">
-						<a href=''><img src="images/5di3.png"/>
-						<h3>乔木类-金叶水杉</h3></a>
-				</div>
-				<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 product-item"  style="text-align: center">
-						<a href=''><img src="images/5di3.png"/>
-						<h3>乔木类-金叶水杉</h3></a>
-				</div>
-				<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 product-item"  style="text-align: center">
-						<a href=''><img src="images/5di3.png"/>
-						<h3>乔木类-金叶水杉</h3></a>
-				</div>
-				<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 product-item"  style="text-align: center">
-						<a href=''><img src="images/5di3.png"/>
-						<h3>乔木类-金叶水杉</h3></a>
-				</div>
+				<% data.forEach(function(item){ %>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 product-item"  style="text-align: center">
+						<a href='product-detail?id=<%- item.guid %>'><img src="<%- item.cover%>"/>
+						<h3><%- item.title%></h3></a>
+				    </div>
+                <% }) %>
 			</div>
 
 		</div>
@@ -65,7 +27,7 @@
 		
 
 </div>
-<div style="background-color: rgb(246, 246, 246);width: 100%">
+<div style="background-color: rgb(246, 246, 246) ;width: 100%">
 		<div class="inbox" style="background-color: rgb(246, 246, 246);">
 		<h3>OUR ADVANTAGE</h3>
 		<h2 >四大优势，让您无后顾之忧</h2>
@@ -73,26 +35,30 @@
 		<table style="width: 100%">
 			<tr>
 				<td style="width: 25%;text-align: center">
-					<img src="images/5di3.png"/>
-						<h3>乔木类-金叶水杉</h3>
+					<img src="http://image.qicheen.com/5f1ac5181c2561aceee23450c19d54c4_about3.png"/>
+						<h4>01专业</h4>
+						<p>20年花卉种植经验<br>用匠心做专业的输出基地</p>
 				</td>
 				<td style="width: 25%;text-align: center">
-					<img src="images/5di3.png"/>
-						<h3>乔木类-金叶水杉</h3>
+					<img src="http://image.qicheen.com/e8d31ab36f2e7ac54d431f8546414279_about1.png"/>
+						<h4>02快速供应</h4>
+						<p>超大规模，快速供应<br>年产650万亩花卉苗木的输出能力</p>
 				</td>
 				<td style="width: 25%;text-align: center">
-					<img src="images/5di3.png"/>
-						<h3>乔木类-金叶水杉</h3>
+					<img src="http://image.qicheen.com/85d3e10735dd84205144fdb300cf58da_about2.png"/>
+						<h4>03值得信赖</h4>
+						<p>物美价廉，保证质量<br>远销华北，华东，华南等地</p>
 				</td>
 				<td style="width: 25%;text-align: center">
-					<img src="images/5di3.png"/>
-						<h3>乔木类-金叶水杉</h3>
+					<img src="http://image.qicheen.com/f2f123ebae84221d6416588e751b198f_about4.png"/>
+						<h4>04全程无忧</h4>
+						<p>客服7x24小时全程接待<br>全程跟踪服务</p>
 				</td>
 			</tr>
 		</table>
 		</div>
 </div>
-<div style="background:url(../images/aboutbg.png) no-repeat top right;width: 100%;color: #fff">
+<div style="background:url(http://image.qicheen.com/d409fc486e4bc3a8e012366d1de40253_aboutbg.jpg) no-repeat center ;width: 100%; min-width: 1200px;margin: 30px auto 0 auto;;color: #fff">
 	<div class="inbox" style="padding-top: 20px;padding-bottom: 20px;text-align: center;">
 	<h3 style="color: #fff">ABOUT US</h3>
 	<h2 style="color: #fff">关于我们</h2>

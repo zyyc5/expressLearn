@@ -23,6 +23,7 @@
     <!-- Docs master nav -->
     <script >
         var postObj = <%- JSON.stringify(post?post:null); %>;
+        var allcats = <%- JSON.stringify(allcats?allcats:[]); %>;
         $(document).ready(function() {
         $('#summernote').summernote({
             lang: 'zh-CN',
@@ -85,24 +86,32 @@
                         <div id="c_title" class="input-group input-group-lg" style="margin:15px;width: 100%;text-align: right;">
                     <button class="btn btn-success" id='bt-send' >发布</button>
                 </div>
-                        <div id="c_title" class="input-group input-group-lg" style="margin:15px;width: 100%;">
-                            <input type="text" class="form-control" id='ipt-title' name="last_name" placeholder='这里输入标题' style="width: 100%;">
-                        </div>
-                        <div id="c_type" class="input-group input-group-lg" style="margin:15px;width: 100%;">
-                                <select class="selectpicker" id='select-cat'>
-                                        <option value="" selected disabled>选择文章类别</option>
-                                        <!-- <option value='1'>产品中心</option>
-                                        <option value='2'>Ketchup</option>
-                                        <option value='3'>Barbecue</option> -->
-                                        <% allcats.forEach(function(item){ %>
-                                            <option value='<%- item.cat_id %>' <%- (post&&post.cat_id==item.cat_id?'selected':'') %>><%- item.cat_name %></option>
-                                            <% }) %>
-                                </select>
-                        </div>
-                        <br>
-                        <div id="c_content" class="input-group input-group-lg" style="margin-left:16px;width: 100%;">
-                            <div id="summernote" style="margin-top:20px;;"></div>
-                        </div>
+                <div id="c_title" class="input-group input-group-lg" style="margin:15px;width: 100%;">
+                    <input type="text" class="form-control" id='ipt-title' name="last_name" placeholder='这里输入标题' style="width: 100%;">
+                </div>
+                <div id="c_type" class="input-group input-group-lg" style="margin:15px;width: 100%;">
+                    <select class="selectpicker" id='select-cat'>
+                            <option value="" selected disabled>选择文章类别</option>
+                            <% allcats.forEach(function(item){ %>
+                                <% if(!item.parent){ %>
+                                <option value='<%- item.cat_id %>'  %>><%- item.cat_name %></option>
+                                <% }}) %>
+                    </select>
+                </div>
+                <div id="c_sub_type" class="input-group input-group-lg" style="margin:15px;width: 100%;">
+                    <select class="selectpicker" id='select-sub-cat'>
+                            
+                    </select>
+                </div>
+                <div id="c_title" class="input-group input-group-lg" style="margin:15px;width: 100%;">
+                    <button class="btn btn-success" id='bt-file-select' >上传封面</button>
+                    <input type="file" id='file' style="display: none;">
+                    <img id='cover_show' src=''>
+                </div>
+                <br>
+                <div id="c_content" class="input-group input-group-lg" style="margin-left:16px;width: 100%;">
+                    <div id="summernote" style="margin-top:20px;;"></div>
+                </div>
                 </div>
             </div>
 
@@ -115,19 +124,62 @@
         if(postObj){
             $('#ipt-title').val(postObj.title);
             $('#select-cat').selectpicker('val', postObj.cat_id);
+            if(allcats&&postObj.cat_id){
+                var parent = allcats.filter(function(fitem){
+                    return fitem.parent&&fitem.cat_id == postObj.cat_id;
+                });
+                if(parent.length>0)
+                    $('#select-cat').selectpicker('val', parent[0].parent);
+            }
             $('#summernote').summernote('code', postObj.content);
+            if(postObj.cover){
+                $('#cover_show').attr('src',postObj.cover);
+                $('#bt-file-select').hide();
+            }
+            
         }
+        var catSelectChange = function(){
+            var pcatId = $('#select-cat').selectpicker('val');
+            if(!allcats||!pcatId){
+                $('#select-sub-cat').empty();
+                $('#c_sub_type').hide();
+                return;
+            }
+                
+            var subCats = [];
+            allcats.forEach(function(item){
+                if(item.parent == pcatId)
+                    subCats.push(item);
+            });
+            $('#select-sub-cat').empty();
+            if(subCats.length==0){
+
+                $('#c_sub_type').hide();
+            }else{
+                subCats.forEach(function(sub){
+                    $('#select-sub-cat').append("<option value='"+sub.cat_id+"'>"+sub.cat_name+"</option>");
+                })
+                $('#c_sub_type').show();
+                
+            }
+            $('#select-sub-cat').selectpicker('refresh');
+        };
+        catSelectChange();
+        $('#select-cat').change(catSelectChange);
         $('#bt-send').on('click', function(){
             var title = $('#ipt-title').val();
             var cat = $('#select-cat').selectpicker('val');
+            var subcat = $('#select-sub-cat').selectpicker('val');
             var content = $('#summernote').summernote('code');
+            var cover =  $('#cover_show').attr('src');
             console.log(title, cat, content);
             if(!title||!cat||!content)
                 return alert('信息不全');
             var data = {
                 title: title,
-                post_cat: cat,
-                content: content
+                post_cat: subcat||cat,
+                content: content,
+                coverUrl: cover
             };
             if(postObj&&postObj.id)
                 data.post_id = postObj.id;
@@ -139,8 +191,7 @@
                 cache : false,
                 success : function(response) {
                     var json = response;
-                    console.info(json);
-
+                    history.back();
                 },
                 // ajax请求失败时处理
                 error : function(error){
@@ -149,6 +200,57 @@
             });
 
         });
+        $('#cover_show').on('click',function(){
+            $('#file').click();
+        });
+        $('#bt-file-select').on('click',function(){
+            $('#file').click();
+        });
+        $('#file').change(function(e,n){
+            // console.log(e,this.value);
+           
+            var fileList = $(this)[0].files;
+            if (!fileList || fileList.length == 0) {
+                //alert("尚未选择文件");
+                return;
+            }
+            for (var i = 0; i < fileList.length; i++) {
+
+                if (fileList[i].size > 2048000){
+                    alert("图片大小不能超过2M");
+                    return;
+                }
+            }
+            var FileController = "../file_upload";
+
+            var objf = [];
+            objf.piclist = [];
+
+            var form = new FormData();
+
+            form.append("file", fileList[0]);
+            var xhr = new XMLHttpRequest();
+
+            xhr.open("post", FileController, true);
+
+            xhr.onload = function () {
+                var msg = xhr.responseText;
+                try{
+                    var data = JSON.parse(msg);
+
+                    if (data.message == 'success'){
+                        $('#cover_show').attr('src',data.url) ;
+                        $('#bt-file-select').hide();
+                    } else{
+                        alert('上传失败');
+                    }
+                } catch (e){
+                    alert('上传失败');
+                }
+            };
+            xhr.send(form);
+        })
+
     })();
 </script>
 </html>

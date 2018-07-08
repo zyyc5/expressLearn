@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= title %></title>
+	<%- include('head'); %>
+</head>
+<body>
+<%- include('header'); %>
+	
+<div class="inbox">
+
+		<h3>NEWS CENTER</h3>
+		<h2><%= title %></h2>
+		<h2 class="line"></h2>
+	
+        <table class="table">
+            <% data.forEach(function(item){ %>
+                <tr>
+                    <td>*</td>
+                    <td width="70%" style="width: 70%;text-align: left;"><a href="/newsDetail/<%- item.guid%>.html"><%- item.title%></a></td>
+                    <td width="20%" style="width: 20%;text-align: right;"><%- item.post_date.substr(0,10)%></td>
+                </tr>
+            <% }) %>
+        </table>
+        <ul class="pager">
+            <% if(pageInfo.currentpage>1){%>
+                <li style="<%- pageInfo.currentpage==1?'display: none;':''%>"><a href="?pageIndex=<%- pageInfo.currentpage>1?(pageInfo.currentpage-1):1 %>">上一页</a></li>
+            <%}%>
+            <% if(pageInfo.currentpage<pageInfo.totalpage){%>
+                <li style="<%- pageInfo.currentpage==pageInfo.totalpage?'display: none;':''%>"><a href="?pageIndex=<%- pageInfo.currentpage+1 %>">下一页</a></li>
+            <%}%>
+          </ul>
+		
+
+</div>
+
+<%- include('footer'); %>
+</body>
+</html>
