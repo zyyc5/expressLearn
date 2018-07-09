@@ -52,7 +52,7 @@ body {
 .inbox h4 span{ float:right;}
 .inbox a.about{ width: 200px;margin-top: 20px;opacity: 0.5;color: rgb(21,109,85);font-weight: 700;}
 .inbox .fahuoimg{ padding: 10px;border: 1px solid #b9b2b2;vertical-align: bottom;width: 230px;}
-
+.inbox img {max-width: 1200px;;}
 
 .product-item { text-align: center ;margin-bottom:15px;}
 .product-item img {

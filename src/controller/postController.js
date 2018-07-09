@@ -47,10 +47,12 @@ let delPost = (req, res)=>{
  * 
  */
 let postList = (req, res)=>{
+    let post_cat = req.params.post_cat;
+    let {pageSize=10,pageIndex} = req._param;
     service.getAllCat().then(allcats=>{
-        service.getPostList(req._param).then(result=>{
+        service.getPostList({post_cat,pageIndex,pageSize}).then(result=>{
             // res.send(200,result);
-            res.render('admin/postslist', { title: '文章列表', posts: result, allcats: allcats.data, cat_id: req._param.post_cat?req._param.post_cat:'0'  });
+            res.render('admin/postslist', { title: '文章列表', posts: result, allcats: allcats.data, cat_id: post_cat?post_cat:'0'  });
         });
     });
 }

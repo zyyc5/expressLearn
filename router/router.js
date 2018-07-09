@@ -15,9 +15,11 @@ router.get('/', controller.home);
 router.get('/index', controller.home);
 
 router.get('/about', function(req, res) {
-  res.render('about', { title: 'about' });
+  res.render('about', { title: '关于我们' });
 });
-
+router.get('/contactus', function(req, res) {
+	res.render('contactus', { title: '联系我们' });
+  });
 router.get('/product', controller.product);
 router.get('/product-more/:cat', controller.productMore);
 router.get('/product-detail/:id.html', controller.productDetail);

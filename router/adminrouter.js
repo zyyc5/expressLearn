@@ -113,7 +113,7 @@ router.post('/imageupload', function (req, res) {
  });
 
  router.post('/addposts', controller.addPosts);
- router.get('/postlist', controller.postList);
+ router.get('/postlist/:post_cat', controller.postList);
  router.post('/delposts', controller.delPost);
 
 
