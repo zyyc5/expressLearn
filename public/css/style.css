@@ -16,7 +16,7 @@ body {
   .fr{float:right}
   .clear{ clear:both; height:0px;}
   .header{ width:100%; min-width:1200px; background:url(../images/index_02.jpg) repeat-x; height:108px; }
-  .header .boxwidth{ width:1002px; margin:0 auto; overflow:hidden; padding-top:15px;}
+  .header .boxwidth{ width:1102px; margin:0 auto; overflow:hidden; padding-top:15px;}
   
 
 /*********菜单*******/
