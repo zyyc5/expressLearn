@@ -2,6 +2,7 @@
 const Promise = require('bluebird');
 const uuid = require('uuid');
 const common = require('./common');
+const crypto=require('crypto');
 
 let util = {
     get UUID(){
@@ -15,6 +16,11 @@ let util = {
     }
 };
 
+util.md5 = (str)=>{
+  let md5=crypto.createHash("md5");
+  md5.update(str);
+  return md5.digest('hex');
+}
 
 /**
  * 根据sql语句自动选择对应的数据库，qichacha 还是 qichacha_extend,可写 还是 只读

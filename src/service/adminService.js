@@ -1,9 +1,10 @@
 const util = require('../util');
 const responsemodel = require('../../model/JsonResponse');
 const Promise = require('bluebird');
-
+const salt = 'SQJZX';
 
 let login=({name,pwd})=> {
+	pwd = util.md5(pwd+salt);
 	let sql="select * from user where name=? AND password=? ";
 	let queryarr=[{query:sql,params:[name,pwd]}];
 	return util.query(sql,[name,pwd]).then(result=>{
@@ -29,8 +30,8 @@ let allMenu = ()=>{
 				}
 			});
 			if(!hasexit){
-				let pmenu={id:item.parentId,name:item.pname,child:[]};
-				pmenu.child.push({id:item.id,name:item.name,url:item.url});
+				let pmenu={id:item.parentId, name:item.pname, child:[]};
+				pmenu.child.push({id:item.id, name:item.name, url:item.url});
 				menus.push(pmenu);
 			}
         });
