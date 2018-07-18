@@ -33,7 +33,7 @@ router.get('/caseDetail/:id.html', controller.caseDetail);
 router.post('/file_upload', function (req, res) {
 
 //    console.log(req.files);  // 上传的文件信息
-	let type = req._param.type;
+	let type = req._param.type?('!'+req._param.type):'';
    // 获得文件的临时路径
    let tmp_path = req.files.file[0].path;
    let responseUrl = '/upload/' + req.files.file[0].filename + '_' + req.files.file[0].originalname
@@ -48,7 +48,7 @@ router.post('/file_upload', function (req, res) {
 
 			let response = {
 				message:'success', 
-				url: (!err&&result&&result.statusCode == 200)?(imageDomain + filekey)+'!'+type : responseUrl//result.Location
+				url: (!err&&result&&result.statusCode == 200)?(imageDomain + filekey) + type : responseUrl//result.Location
 			};
 			res.send(200, response);
 
