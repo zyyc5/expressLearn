@@ -3,33 +3,18 @@
 <head>
 	<title><%= title %></title>
 	<%- include('../head'); %>
-    <script src="/js/jquery-2.0.0.min.js"></script>
+    <!-- <script src="/js/jquery-2.0.0.min.js"></script> -->
 	<style type="text/css">
 		
 body{margin:0;padding:0;font-family:"Hiragino Sans GB","Microsoft Yahei",SimSun,Arial,"Helvetica Neue",Helvetica;color:#333;word-wrap:break-word;-webkit-font-smoothing:antialiased}
 article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}
-progress{display:inline-block;vertical-align:baseline}
-a{background-color:transparent;outline:0;text-decoration:none}
-a:hover{color:#00b38a;text-decoration:underline}
-h1,h2,h3,h4,h5,h6{margin:10px 0;font-weight:400}
-h1{font-size:24px}
-h2{font-size:20px}
-h3{font-size:18px}
-h4{font-size:16px}
-h5{font-size:14px}
-h6{font-size:12px
-}p{margin:0}
-p+p{margin-top:10px}
-img{border:0;vertical-align:top;display:inline-block}
-button,input,optgroup,select,textarea{margin:0;padding:0;border:1px solid #ededed;font-family:inherit}
-input{font-family:Arial,"Hiragino Sans GB","Microsoft Yahei",SimSun}
-label,select,button,input[type=button],input[type=reset],input[type=submit],input[type=radio],input[type=checkbox]{cursor:pointer}input[type=checkbox],input[type=radio]{padding:0}table{border-collapse:collapse;border-spacing:0}th,td{padding:0}em,strong{font-weight:400}i{font-style:normal}dl,dt,dd{margin:0}::selection{color:#fff;background-color:#00b38a}::-moz-focus-inner{border:0}ul{margin:0;padding:0}li{list-style:none}.fl{float:left}.fr{float:right}.clearfix{zoom:1}.clearfix:before,.clearfix:after{content:"";display:table}.clearfix:after{clear:both}html{font-size:14px}body{min-width:1024px;min-height:100%;background-color:#f8f9fc}
-.sso_header{position:relative;width:100%;height:500px;background-color:#00b38a}
-.sso_header .logo{position:absolute;z-index:9999;top:76px;left:50%;margin-left:-350px;width:512px;height:422px;background:url(/images/title2.png) no-repeat;background-size:contain}
+
+.sso_header{position:relative;width:100%;height:500px;background-color:#00b38a;min-width: 1200px;}
+.sso_header .logo{position:absolute;top:76px;left:50%;margin-left:-350px;width:512px;height:422px;background:url(/images/title2.png) no-repeat;background-size:contain}
 .vender_login{margin-top:12px;text-align:center}.vender_login li{display:inline-block;float:left;margin-left:22px}
 .vender_login li:first-child{margin:0}
-.vender_login li .vender_icon{display:inline-block;width:20px;height:16px;background-size:contain;background-repeat:no-repeat}.vender_login li .icon_sina{background-image:url(//img.lagou.com/passport/static/pc/modules/common/img/icon-sina_aa928cf.png)}.vender_login li .icon_sina:hover{background-image:url(//img.lagou.com/passport/static/pc/modules/common/img/icon-sina-hover_da8f3a8.png)}.vender_login li .icon_tencent{background-image:url(//img.lagou.com/passport/static/pc/modules/common/img/icon-tencent_3265c12.png)}.vender_login li .icon_tencent:hover{background-image:url(//img.lagou.com/passport/static/pc/modules/common/img/icon-tencent-hover_1675bbd.png)}.vender_login li .icon_wechat{background-image:url(//img.lagou.com/passport/static/pc/modules/common/img/icon-wechat_1341174.png)}.vender_login li .icon_wechat:hover{background-image:url(//img.lagou.com/passport/static/pc/modules/common/img/icon-wechat-hover_83a9dcc.png)}.vender_login li .icon_baidu{background-image:url(//img.lagou.com/passport/static/pc/modules/common/img/icon-baidu_bfb603c.png)}.vender_login li .icon_baidu:hover{background-image:url(//img.lagou.com/passport/static/pc/modules/common/img/icon-baidu-hover_37ac2ed.png)}.slogan{margin-top:50px;text-align:center;color:#d1d1d1}.content_box{position:relative;z-index:1}@media only screen and (-o-min-device-pixel-ratio:2/1),only screen and (min--moz-device-pixel-ratio:2),only screen and (-webkit-min-device-pixel-ratio:2),only screen and (min-resolution:240dpi),only screen and (min-resolution:2dppx){.sso_header .logo{background-image:url(//img.lagou.com/passport/static/pc/modules/common/img/logo@2x_6c21c56.png)}.vender_login li .icon_sina{background-image:url(//img.lagou.com/passport/static/pc/modules/common/img/icon-sina@2x_73f58fb.png)}.vender_login li .icon_sina:hover{background-image:url(//img.lagou.com/passport/static/pc/modules/common/img/icon-sina-hover@2x_9fcba2c.png)}.vender_login li .icon_tencent{background-image:url(//img.lagou.com/passport/static/pc/modules/common/img/icon-tencent@2x_e4cb4b6.png)}.vender_login li .icon_tencent:hover{background-image:url(//img.lagou.com/passport/static/pc/modules/common/img/icon-tencent-hover@2x_4fd8477.png)}.vender_login li .icon_wechat{background-image:url(//img.lagou.com/passport/static/pc/modules/common/img/icon-wechat@2x_60831ae.png)}.vender_login li .icon_wechat:hover{background-image:url(//img.lagou.com/passport/static/pc/modules/common/img/icon-wechat-hover@2x_0891cda.png)}.vender_login li .icon_baidu{background-image:url(//img.lagou.com/passport/static/pc/modules/common/img/icon-baidu@2x_f45ad8b.png)}.vender_login li .icon_baidu:hover{background-image:url(//img.lagou.com/passport/static/pc/modules/common/img/icon-baidu-hover@2x_b884a59.png)}}.sso_header a.logo_birth_3rd{background-image:url(//img.lagou.com/passport/static/pc/modules/common/img/logo-birth-3rd_e1e307c.png)}@media only screen and (-o-min-device-pixel-ratio:2/1),only screen and (min--moz-device-pixel-ratio:2),only screen and (-webkit-min-device-pixel-ratio:2),only screen and (min-resolution:240dpi),only screen and (min-resolution:2dppx){.sso_header a.logo_birth_3rd{background-image:url(//img.lagou.com/passport/static/pc/modules/common/img/logo-birth-3rd@2x_562ecbb.png);background-size:128px 54px}}.form_head{position:relative;z-index:1;height:33px;margin-bottom:29px;border-bottom:1px solid #ebebeb}.form_head li{font-size:16px;line-height:24px;position:relative;float:left;width:50%;height:33px;cursor:pointer;text-align:center;color:#333}.form_head li.active{color:#00b38a}.input_tips a{color:#00b38a;text-decoration:none}.input_item:first-child{z-index:2}
-.content_box{width:552px;margin:-155px auto 60px;padding:62px 70px 68px 78px;background-color:#fff;display:table;-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px;border:1px solid #dce1e6}
+
+.content_box{z-index: 999; width:552px;margin:-175px auto 60px;padding:62px 70px 68px 78px;background-color:#fff;display:table;-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px;border:1px solid #dce1e6}
 .content_box .tab_active{position:absolute;left:0;bottom:-1px;z-index:1;background-color:#00b38a;width:150px;height:1px}
 .content_box .tab_active:before,.content_box .tab_active:after{position:absolute;z-index:2;top:-12px;left:50%;margin-left:-3px;content:'';width:0;height:0;line-height:0;border:6px solid transparent;border-bottom-color:#007b5f}
 .content_box .tab_active:after{z-index:3;top:-11px;width:0;height:0;line-height:0;border:6px solid transparent;border-bottom-color:#fff}
@@ -49,9 +34,6 @@ label,select,button,input[type=button],input[type=reset],input[type=submit],inpu
 .content_box .input.verify_code_input{padding-right:140px}
 .content_box .forgot_pwd{position:relative;float:right;font-size:14px;display:block;text-align:right;text-decoration:none;color:#00b38a;margin-top:-5px;z-index:3}
 .content_box .reg_now{text-align:center;margin-top:0;color:#777}
-/* .content_box .reg_now a{font-size:16px;display:inline-block;text-decoration:underline;color:#00b38a;padding-right:23px;background:url(//img.lagou.com/passport/static/pc/modules/common/img/icon-arrow-right_f36c0d6.png) right center no-repeat} */
-.content_box .divider{position:relative;border-left:1px dashed #ededed;height:274px;color:#d8d8d8;margin:0 52px}
-.content_box .divider:after{position:absolute;content:'or';left:50%;top:50%;padding:2px;background-color:#fff;-webkit-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);-o-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}.content_box .divider.code_divider{height:305px}.content_box [data-propertyname=request_form_verifyCode] input[type=text]{padding-right:130px}.content_box .yzm{position:absolute;right:0;top:1px;z-index:1;width:98px}.content_box .reflash{position:absolute;right:0;top:1px;z-index:2;height:40px;width:98px}.content_box .right_area{width:150px;padding-top:26px;color:#777}.content_box .right_area h5{margin:44px 0 8px;color:#555}.content_box .right_area .register_now{display:inline-block;height:22px;font-size:16px;color:#00b38a;padding-right:23px;background:url(//img.lagou.com/passport/static/pc/modules/common/img/icon-arrow-right_f36c0d6.png) right center no-repeat}[data-controltype=VerifyCode] input{border-top-right-radius:0;border-bottom-right-radius:0}@media only screen and (-o-min-device-pixel-ratio:2/1),only screen and (min--moz-device-pixel-ratio:2),only screen and (-webkit-min-device-pixel-ratio:2),only screen and (min-resolution:240dpi),only screen and (min-resolution:2dppx){.content_box .reg_now a{background-image:url(//img.lagou.com/passport/static/pc/modules/common/img/icon-arrow-right@2x_3298c51.png);background-size:18px 17px}}
 
 
 
@@ -67,39 +49,29 @@ label,select,button,input[type=button],input[type=reset],input[type=submit],inpu
 	</style>
 </head>
 <body>
-   <body>
-    
-    <input type="hidden" value="" id="isVisiable_request_form_verifyCode">
-    <!-- 页面主体START -->
     <header class="sso_header">
-        <a href="." class="logo ">
-        </a>
+        <div class="logo ">
+        </div>
     </header>
     <section class="content_box cleafix">
         <div class="left_area fl">
             
             <div class="form_controll" data-view="passwordLogin" style="display: block;">
-                <form class="active" action="javascript:;">
+                <div class="active" >
                     <div class="input_item clearfix" data-propertyname="username" data-controltype="Phone" style="display: block;">
-                        <input type="text" class="input input_white" id="tx_name" name="" placeholder="请输入常用手机号/邮箱" data-required="required" autocomplete="off">
+                        <input type="text" class="form-control" id="tx_name" name="" placeholder="请输入常用手机号/邮箱" data-required="required" autocomplete="off">
                     </div>
                     <div class="input_item clearfix" data-propertyname="password" data-controltype="Password" style="display: block;">
-                        <input type="password" class="input input_white" id="tx_pwd" name="" placeholder="请输入密码" data-required="required" autocomplete="off">
+                        <input type="password" class="form-control" id="tx_pwd" name="" placeholder="请输入密码" data-required="required" autocomplete="off">
                     </div>
-                    <div class="input_item clearfix" data-propertyname="request_form_verifyCode" data-controltype="VerifyCode" style="display: none;">
-                        <div class="input_group clearfix">
-                            <input type="text" class="input input_white verify_code_input fl" name="" placeholder="请证明你不是机器人" data-required="required" autocomplete="off"><img class="yzm" src="https://passport.lagou.com/vcode/create?from=register&amp;refresh=1499147927744">
-                            
-                            <a rel="nofollow" href="javascript:;" class="reflash"></a>
-                        </div>
-                    </div>
+
                     <div class="input_item clearfix">
                         <a rel="nofollow" href="#" class="forgot_pwd">忘记密码？</a>
                     </div>
                     <div class="input_item btn_group clearfix" data-propertyname="submit" data-controltype="Botton" style="display: block;">
-                        <input type="submit" class="btn btn_green btn_active btn_block btn_lg" value="登&nbsp;录" data-lg-tj-id="1j90" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" onclick='login()'>
+                        <input type="button" class="btn btn_green btn_active btn_block btn_lg" value="登&nbsp;录" data-lg-tj-id="1j90" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" onclick='login()'>
                     </div>
-                </form>
+                </div>
             </div>
             
         </div>
