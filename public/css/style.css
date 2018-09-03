@@ -43,9 +43,10 @@ body {
 .inbox h2.line{  color:#19954d; text-align:center; background:url(../images/line.png) no-repeat center; height:28px; line-height:28px; font-size:24px; margin-bottom:5px; position:relative;}
 
 
-.inbox a.about{ width: 200px;margin-top: 20px;opacity: 0.5;color: rgb(21,109,85);font-weight: 700;}
+.inbox a.about{ width: 200px;margin-top: 15px;opacity: 0.5;color: rgb(21,109,85);font-weight: 700;}
 .inbox .fahuoimg{ padding: 10px;border: 1px solid #b9b2b2;vertical-align: bottom;width: 230px;}
-.inbox img {max-width: 1200px;;}
+.inbox img {max-width: 1200px;}
+.advantage img {max-width: 1200px;margin-bottom: 15px;}
 
 .product-item { text-align: center ;margin-bottom:15px;}
 .product-item img {
@@ -57,6 +58,7 @@ body {
 }
 .product-item a{ TEXT-DECORATION: none; COLOR: rgb(71, 61, 61);}
 .product-item h3{ font-size:16px; color:#262626; text-align:center; margin-bottom:5px;height: 40px;line-height: 40px;font-weight: bold;}
+.case img {max-width: 1200px;margin-bottom: 15px;}
 
 
 .slideBox .prev,
