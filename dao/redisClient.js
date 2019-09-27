@@ -5,7 +5,11 @@ var redis = require('redis'),
     RDS_PORT = config.NodeJsRedisConfig.port,//32768,        //端口号
     RDS_HOST = config.NodeJsRedisConfig.host,    //服务器IP
     RDS_PWD = config.NodeJsRedisConfig.redisSecret,    //密码    
-    RDS_OPTS = {};           //设置项
+    RDS_OPTS = {
+        retry_strategy: (options) => {
+          return Math.min(options.attempt * 100, 3000);
+        }
+      };           //设置项
 
 let RedisClient= {};
 
